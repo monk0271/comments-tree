@@ -1,0 +1,14 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /CommentsTree
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:/Users/monk/Desktop/work/software/Comments_tree/recruitment-java-backend-comments-tree-homework-MoChen/db/CommentsTree
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.homework.comments.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true

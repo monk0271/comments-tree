@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.homework.comments.mapper.CommentMapper">
+    <select id="findById" parameterType="Integer" resultType="Comment">
+        SELECT comment_id,user_id,user_name,content,comment_pid,reply_id,reply_name,create_time FROM t_comment
+        where comment_id=#{commentId}
+    </select>
+    <select id="findAll" resultType="Comment">
+        SELECT comment_id,user_id,user_name,content,comment_pid,reply_id,reply_name,create_time FROM t_comment order by create_time desc
+    </select>
+    <insert id="save" parameterType="Comment" useGeneratedKeys="true" keyProperty="id">
+        <selectKey keyProperty="commentId" order="AFTER" resultType="java.lang.Integer">
+            SELECT seq FROM sqlite_sequence as commentId where name='t_comment'
+        </selectKey>
+        insert into t_comment(user_id,user_name,content,comment_pid,reply_id,reply_name,create_time)
+         values (#{userId},#{userName},#{content},#{commentPid},#{replyId},#{replyName},#{createTime})
+    </insert>
+</mapper>
