@@ -1,0 +1,12 @@
+
+.DS_Store
+*.class
+comments/.idea/*
+comments/.mvn/*
+comments/comments.iml
+comments/HELP.md
+comments/mvnw
+comments/mvnw.cmd
+comments/target/*
+comments-front-end/.idea/*
+comments-front-end/node_modules/*
